@@ -27,13 +27,13 @@ namespace Testavimo_kursai_2021.Test
             _page = new Open24LoginPage(driver);
             _page2 = new Open24Homepage(driver);
             _page3 = new Open24ChildrenSection(driver);
-    }
+        }
         [OneTimeTearDown]
         public static void TearDown()
         {
             //_driver.Quit();
         }
-        [TestCase("gabbriele89@hotmail.com", "Testavimokodas", "Mano užsakymai", TestName = "Test Valid LogIn")]
+        [TestCase("gabriele.rutkauske@gmail.com", "KodasTestui", "Mano užsakymai", TestName = "Test Valid LogIn")]
         public void TestValidLogIn(string email, string password, string result)
         {
             _page.InsertEmailAndPassword(email, password)
@@ -49,7 +49,7 @@ namespace Testavimo_kursai_2021.Test
             .CheckLoyaltyButtonResult(result);
         }
         [Test]
-            public void TestReimaBannerButton()
+        public void TestReimaBannerButton()
         {
             _page2.ClickReimaBanner()
             .VerifyReimaBannerResult("REIMA(448)");
