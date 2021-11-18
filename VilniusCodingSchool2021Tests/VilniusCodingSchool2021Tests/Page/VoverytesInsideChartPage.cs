@@ -14,9 +14,7 @@ namespace VilniusCodingSchool2021Tests.Page
         public const string PageAddressChart = "https://www.voverytesbutikelis.lt/cart";
 
         public VoverytesInsideChartPage(IWebDriver webdriver) : base(webdriver)
-        {
-            Driver.Url = PageAddressChart;
-        }
+        {}
         public VoverytesInsideChartPage NavigateToDefaultPage()
         {
             if (Driver.Url != PageAddressChart)

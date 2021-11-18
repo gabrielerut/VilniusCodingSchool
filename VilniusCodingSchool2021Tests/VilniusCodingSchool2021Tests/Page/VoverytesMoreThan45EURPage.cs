@@ -13,9 +13,7 @@ namespace VilniusCodingSchool2021Tests.Page
     {
         public const string PageAddressExpensiveItem = "https://www.voverytesbutikelis.lt/Drabuziu_kabykla_Tipi";
         public VoverytesMoreThan45EURPage(IWebDriver webdriver) : base(webdriver)
-        {
-            Driver.Url = PageAddressExpensiveItem;
-        }
+        {}
         public VoverytesMoreThan45EURPage NavigateToDefaultPage()
         {
             if (Driver.Url != PageAddressExpensiveItem)

@@ -19,7 +19,7 @@ namespace VilniusCodingSchool2021Tests.Page
 
         public void CloseBrowser()
         {
-            //Driver.Quit();
+            Driver.Quit();
         }
     }
 

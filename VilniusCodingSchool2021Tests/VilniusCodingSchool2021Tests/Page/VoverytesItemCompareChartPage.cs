@@ -11,12 +11,10 @@ namespace VilniusCodingSchool2021Tests.Page
 {
     public class VoverytesItemCompareChartPage :BasePage
     {
-        public const string PageAddressItemPage = "//https://www.voverytesbutikelis.lt/pasipuosimui_ir_svarai/Wooly_organic_rudenine_kepure_su_ausytemis_Caramel";
+        public const string PageAddressItemPage = "https://www.voverytesbutikelis.lt/pasipuosimui_ir_svarai/Wooly_organic_rudenine_kepure_su_ausytemis_Caramel";
 
         public VoverytesItemCompareChartPage(IWebDriver webdriver) : base(webdriver)
-        {
-            Driver.Url = PageAddressItemPage;
-        }
+        {}
         public VoverytesItemCompareChartPage NavigateToDefaultPage()
         {
             if (Driver.Url != PageAddressItemPage)

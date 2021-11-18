@@ -14,13 +14,11 @@ namespace VilniusCodingSchool2021Tests.Test
     public class VoverytesLoginTest : BaseTest
     {
 
-        [TestCase("g_survilaite@outlook.com", "KodasTestui", "REGISTRUOTI VARTOTOJĄ", TestName = "Test New User Registration Button")]
-        public void TestNewUserRegisterButton(string email, string password, string result2)
+        [TestCase("REGISTRUOTI VARTOTOJĄ", TestName = "Test New User Registration Button")]
+        public void TestNewUserRegisterButton(string result2)
         {
             _loginPage.NavigateToDefaultPage();
-            _loginPage.InsertEmailAndPassword(email, password);
-            _loginPage.ClickLoginButton()
-            .ClickNewRegisterButton();
+            _loginPage.ClickNewRegisterButton();
             _accountRegisterPage.CheckNewRegisterButtonResult(result2);
         }
         [TestCase("g_survilaite@outlook.com", "KodasTestui", "Įspėjimas: El. paštas ir/arba slaptažodis nerasti sistemoje.", TestName = "Test Valid LogIn")]
@@ -31,13 +29,20 @@ namespace VilniusCodingSchool2021Tests.Test
             _loginPage.ClickLoginButton()
             .CheckLoginResult(result);
         }
-        
-        [TestCase("testouser", "TestoKodas", "123@gmail.com", "868686868", "Testo gatve", "Vilnius",  "Lithuania", "Vilnius", "Iveskite slaptazodi", TestName = "Test New User Registration Form")]
-        public void TestNewUserRegistrationForm(string name, string lastName, string email, string phone, string adress, string city, string country, string region, string result )
+
+        [TestCase("testouser", "TestoKodas", "123@gmail.com", "868686868", "Testo gatve", "Vilnius", "Slaptažodis turi būti nuo 3 iki 20 simbolių ilgio!", TestName = "Test New User Registration Form")]
+        public void TestNewUserRegistrationForm(string name, string lastName, string email, string phone, string adress, string city, string result)
         {
-            _accountRegisterPage.NavigateToDefaultPage();
-            _accountRegisterPage.InsertAllPersonalInfoWithNoPassword(name, lastName, email, phone, adress, city, country, region);
-            _accountRegisterPage.CheckEmptyPasswordErrorResult(result);
+            _accountRegisterPage.NavigateToDefaultPage()
+            .InsertAllPersonalInfoWithNoPassword(name, lastName, email, phone, adress, city);
+            string Lithuania = "Lithuania";
+            string Vilnius = "Vilnius";
+            _accountRegisterPage.SelectFromDropdownCountry(Lithuania)
+            .SelectFromDropdownCity(Vilnius)
+            .CheckNewlettersCheckbox()
+            .CheckPrivacyCheckbox()
+            .ClickContinueRegistratonButton()
+            .CheckEmptyPasswordErrorResult(result);
         }
 
         [TestCase("1", "1 prekė(s) - 16.00€", TestName = "Test Correct Chart")]
@@ -59,7 +64,7 @@ namespace VilniusCodingSchool2021Tests.Test
             .CheckEmptyChartResult(result2);
         }
 
-        [TestCase("Paštomatas - 0.00€ ", TestName = "Check free shiping price for item over 45 eur")]
+        [TestCase("Paštomatas - 0.00€", TestName = "Check free shiping price for item over 45 eur")]
         public void TestFreeShipping(string result3)
         {
             _productOver45eurPage.NavigateToDefaultPage();

@@ -16,9 +16,7 @@ namespace VilniusCodingSchool2021Tests.Page
         public const string RegisterResultText = "REGISTRUOTI VARTOTOJĄ";
 
         public VoverytesAccountRegisterPage(IWebDriver webdriver) : base(webdriver)
-        {
-            Driver.Url = PageAddressAccountRegister;
-        }
+        {}
         public VoverytesAccountRegisterPage NavigateToDefaultPage()
         {
             if (Driver.Url != PageAddressAccountRegister)
@@ -33,12 +31,11 @@ namespace VilniusCodingSchool2021Tests.Page
         private IWebElement newUserAdress => Driver.FindElement(By.Id("input-address-1"));
         private IWebElement newUserCity => Driver.FindElement(By.Id("input-city"));
         private SelectElement dropDownCountry => new SelectElement(Driver.FindElement(By.Id("input-country")));
-
         private SelectElement dropDownRegion => new SelectElement(Driver.FindElement(By.Id("input-zone")));
-        private IWebElement privacyCheckbox => Driver.FindElement(By.Id("#content > div > form > div > div > input[type=checkbox]:nth-child(2)"));
+        private IWebElement privacyCheckbox => Driver.FindElement(By.Name("agree"));
         private IWebElement newslettersCheckbox => Driver.FindElement(By.CssSelector("#content > div > form > fieldset:nth-child(7) > div > div > label:nth-child(2) > input[type=radio]"));
         private IWebElement continueRegistrationButton => Driver.FindElement(By.CssSelector("#content > div > form > div > div > input.btn.btn-primary.button"));
-        private IWebElement emptyPasswordErrorResult => Driver.FindElement(By.Id("#content > div > form > fieldset:nth-child(5) > div.form-group.required.has-error > div > div"));
+        private IWebElement emptyPasswordErrorResult => Driver.FindElement(By.CssSelector(".text-danger"));
 
         public VoverytesAccountRegisterPage CheckNewRegisterButtonResult(string expectedRegisterButtonResul)
         {
@@ -82,7 +79,7 @@ namespace VilniusCodingSchool2021Tests.Page
             newUserCity.SendKeys(city);
             return this;
         }
-        public void InsertAllPersonalInfoWithNoPassword(string name, string lastName, string email, string phone, string adress, string city, string country, string region)
+        public VoverytesAccountRegisterPage InsertAllPersonalInfoWithNoPassword(string name, string lastName, string email, string phone, string adress, string city)
         {
             InsertName(name);
             InsertLastname(lastName);
@@ -90,20 +87,18 @@ namespace VilniusCodingSchool2021Tests.Page
             InsertPhone(phone);
             InsertAdress(adress);
             InsertCity(city);
-            SelectFromDropdownCountry(country);
-            SelectFromDropdownCity(region);
-            CheckNewlettersCheckbox();
-            CheckPrivacyCheckbox();
-            ClickContinueRegistratonButton();
-        }
-        public VoverytesAccountRegisterPage SelectFromDropdownCountry(string country)
-        {
-            dropDownCountry.SelectByValue(country);
             return this;
         }
-        public VoverytesAccountRegisterPage SelectFromDropdownCity(string region)
+
+
+        public VoverytesAccountRegisterPage SelectFromDropdownCountry(string text)
         {
-            dropDownRegion.SelectByValue(region);
+            dropDownCountry.SelectByText(text);
+            return this;
+        }
+        public VoverytesAccountRegisterPage SelectFromDropdownCity(string text)
+        {
+            dropDownRegion.SelectByText(text);
             return this;
         }
         public VoverytesAccountRegisterPage CheckNewlettersCheckbox()
