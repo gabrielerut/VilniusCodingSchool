@@ -55,9 +55,9 @@ namespace VilniusCodingSchool2021Tests.Page
             newRegisterButton.Click();
             return this;
         }
-        public VoverytesButikasLoginPage CheckLoginResult(string expectedLoginResul)
+        public VoverytesButikasLoginPage CheckLoginResult()
         {
-            Assert.AreEqual(expectedLoginResul, loginResult.Text, "No related message");
+            Assert.AreEqual(LoginErrorResultText, loginResult.Text, "No related message");
             return this;
         }
 

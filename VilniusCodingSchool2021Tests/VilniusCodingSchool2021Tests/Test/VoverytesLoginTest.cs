@@ -21,13 +21,13 @@ namespace VilniusCodingSchool2021Tests.Test
             _loginPage.ClickNewRegisterButton();
             _accountRegisterPage.CheckNewRegisterButtonResult(result2);
         }
-        [TestCase("g_survilaite@outlook.com", "KodasTestui", "Įspėjimas: El. paštas ir/arba slaptažodis nerasti sistemoje.", TestName = "Test Valid LogIn")]
-        public void TestValidLogIn(string email, string password, string result)
+        [TestCase("g_survilaite@outlook.com", "KodasTestui", TestName = "Test Valid LogIn")]
+        public void TestValidLogIn(string email, string password)
         {
             _loginPage.NavigateToDefaultPage();
             _loginPage.InsertEmailAndPassword(email, password);
             _loginPage.ClickLoginButton()
-            .CheckLoginResult(result);
+            .CheckLoginResult();
         }
 
         [TestCase("testouser", "TestoKodas", "123@gmail.com", "868686868", "Testo gatve", "Vilnius", "Slaptažodis turi būti nuo 3 iki 20 simbolių ilgio!", TestName = "Test New User Registration Form")]
@@ -45,14 +45,14 @@ namespace VilniusCodingSchool2021Tests.Test
             .CheckEmptyPasswordErrorResult(result);
         }
 
-        [TestCase("1", "1 prekė(s) - 16.00€", TestName = "Test Correct Chart")]
-        public void TestAddToChart(string quantity, string result1)
+        [TestCase("1", TestName = "Test Correct Chart")]
+        public void TestAddToChart(string quantity)
         {
             _compareChartElementsPage.NavigateToDefaultPage();
             _compareChartElementsPage.SelectSize36Years()
             .SelectQuantityByValue(quantity)
             .ClickAddToChart()
-            .CheckChartTotalResult(result1);
+            .CheckChartTotalResult();
 
         }
         [TestCase("1", "Jūsų krepšelis tuščias!", TestName = "Test Remove from Chart")]

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace VilniusCodingSchool2021Tests.Page
@@ -12,7 +13,7 @@ namespace VilniusCodingSchool2021Tests.Page
     public class VoverytesItemCompareChartPage :BasePage
     {
         public const string PageAddressItemPage = "https://www.voverytesbutikelis.lt/pasipuosimui_ir_svarai/Wooly_organic_rudenine_kepure_su_ausytemis_Caramel";
-
+        public const string ChartTotalResultOnPage = "1 prekė(s) - 16.00€";
         public VoverytesItemCompareChartPage(IWebDriver webdriver) : base(webdriver)
         {}
         public VoverytesItemCompareChartPage NavigateToDefaultPage()
@@ -46,6 +47,7 @@ namespace VilniusCodingSchool2021Tests.Page
         public VoverytesItemCompareChartPage ClickAddToChart()
         {
             AddToChart.Click();
+            Thread.Sleep(300);
             return this;
         }
         public void BuyBrownChildrensCap(string quantity)
@@ -53,21 +55,24 @@ namespace VilniusCodingSchool2021Tests.Page
             SelectSize36Years();
             SelectQuantityByValue(quantity);
             ClickAddToChart();
+            Thread.Sleep(300);
             GoToChartStep();
         }
         
-        public VoverytesItemCompareChartPage CheckChartTotalResult(string expectedChartResult)
-        {
-            Assert.IsTrue(expectedChartResult.Equals(ChartTotalResultOnSamePage.Text), "Total is not correct");
-            return this;
-        }
         public VoverytesItemCompareChartPage GoToChartStep()
         {
+            
             Actions action = new Actions(Driver);
             action.MoveToElement(ChartTotalResultOnSamePage).Perform();
             action.MoveToElement(MiniChartTotalBox).Perform();
             action.Build().Perform();
             ReviewChartButton.Click();
+            return this;
+        }
+
+        public VoverytesItemCompareChartPage CheckChartTotalResult()
+        {
+            Assert.AreEqual(ChartTotalResultOnPage, ChartTotalResultOnSamePage.Text, "Total is not correct");
             return this;
         }
 

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace VilniusCodingSchool2021Tests.Page
@@ -33,6 +34,7 @@ namespace VilniusCodingSchool2021Tests.Page
         }
         public VoverytesMoreThan45EURPage GoToChartStep()
         {
+            Thread.Sleep(300);
             Actions action = new Actions(Driver);
             action.MoveToElement(ChartTotalResultSamePage).Perform();
             action.MoveToElement(MiniChartTotalBox).Perform();
@@ -48,6 +50,7 @@ namespace VilniusCodingSchool2021Tests.Page
         public void BuyProductOver45eur()
         {
             ClickAddToChart();
+            Thread.Sleep(300);
             GoToChartStep();
             ClickFinalBuyButtont();
         }

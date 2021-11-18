@@ -1,5 +1,7 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.Build.BuildEngine;
+using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,7 @@ namespace VilniusCodingSchool2021Tests.Test
         public static void SetUp()
         {
             Driver = CustomDriver.GetChromeDriver();
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             _accountRegisterPage = new VoverytesAccountRegisterPage(Driver);
             _loginPage = new VoverytesButikasLoginPage(Driver);
             _chartPage = new VoverytesInsideChartPage(Driver);
@@ -32,10 +35,11 @@ namespace VilniusCodingSchool2021Tests.Test
             _productOver45eurPage = new VoverytesMoreThan45EURPage(Driver);
             _checkoutPage = new CheckOutPageAndShipping(Driver);
         }
+
         [OneTimeTearDown]
         public static void TearDown()
         {
-            //Driver.Quit();
+            Driver.Quit();
         }
 
         /*[TearDown]
