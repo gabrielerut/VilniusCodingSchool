@@ -18,6 +18,12 @@ namespace VilniusCodingSchool2021Tests.Page
         {
             Driver.Url = PageAddressOpenLogin;
         }
+        public VoverytesButikasLoginPage NavigateToDefaultPage()
+        {
+            if (Driver.Url != PageAddressOpenLogin)
+                Driver.Url = PageAddressOpenLogin;
+            return this;
+        }
         private IWebElement userEmail => Driver.FindElement(By.Id("input-email"));
         private IWebElement userPassword => Driver.FindElement(By.Id("input-password"));
         private IWebElement loginButton => Driver.FindElement(By.Id("#content > div > div.col-sm-6.right > div > form > input"));

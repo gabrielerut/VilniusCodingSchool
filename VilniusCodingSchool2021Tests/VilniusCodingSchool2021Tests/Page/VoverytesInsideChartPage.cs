@@ -11,11 +11,17 @@ namespace VilniusCodingSchool2021Tests.Page
 {
     public class VoverytesInsideChartPage : BasePage
     {
-        public const string PageAddressOpenLogin = "https://www.voverytesbutikelis.lt/cart";
+        public const string PageAddressChart = "https://www.voverytesbutikelis.lt/cart";
 
         public VoverytesInsideChartPage(IWebDriver webdriver) : base(webdriver)
         {
-            Driver.Url = PageAddressOpenLogin;
+            Driver.Url = PageAddressChart;
+        }
+        public VoverytesInsideChartPage NavigateToDefaultPage()
+        {
+            if (Driver.Url != PageAddressChart)
+                Driver.Url = PageAddressChart;
+            return this;
         }
         private IWebElement RemoveFromChartButton => Driver.FindElement(By.CssSelector("#content > form > div > table > tbody > tr > td.text-left.quantity > div > span > button.btn.btn-danger"));
         private IWebElement EmptyChartResult => Driver.FindElement(By.CssSelector("#content > p"));

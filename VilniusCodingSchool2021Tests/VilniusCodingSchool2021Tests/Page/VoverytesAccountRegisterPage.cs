@@ -12,12 +12,18 @@ namespace VilniusCodingSchool2021Tests.Page
     public class VoverytesAccountRegisterPage : BasePage
     {
 
-        public const string PageAddressOpenLogin = "https://www.voverytesbutikelis.lt/account-register";
+        public const string PageAddressAccountRegister = "https://www.voverytesbutikelis.lt/account-register";
         public const string RegisterResultText = "REGISTRUOTI VARTOTOJĄ";
 
         public VoverytesAccountRegisterPage(IWebDriver webdriver) : base(webdriver)
         {
-            Driver.Url = PageAddressOpenLogin;
+            Driver.Url = PageAddressAccountRegister;
+        }
+        public VoverytesAccountRegisterPage NavigateToDefaultPage()
+        {
+            if (Driver.Url != PageAddressAccountRegister)
+                Driver.Url = PageAddressAccountRegister;
+            return this;
         }
         private IWebElement newRegisterResult => Driver.FindElement(By.CssSelector("#content > h1"));
         private IWebElement newUserName => Driver.FindElement(By.Id("input-firstname"));

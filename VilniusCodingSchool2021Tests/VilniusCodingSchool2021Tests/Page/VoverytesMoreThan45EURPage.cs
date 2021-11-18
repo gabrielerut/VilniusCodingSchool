@@ -11,10 +11,16 @@ namespace VilniusCodingSchool2021Tests.Page
 {
     public class VoverytesMoreThan45EURPage : BasePage
     {
-        public const string PageAddressOpenLogin = "https://www.voverytesbutikelis.lt/Drabuziu_kabykla_Tipi";
+        public const string PageAddressExpensiveItem = "https://www.voverytesbutikelis.lt/Drabuziu_kabykla_Tipi";
         public VoverytesMoreThan45EURPage(IWebDriver webdriver) : base(webdriver)
         {
-            Driver.Url = PageAddressOpenLogin;
+            Driver.Url = PageAddressExpensiveItem;
+        }
+        public VoverytesMoreThan45EURPage NavigateToDefaultPage()
+        {
+            if (Driver.Url != PageAddressExpensiveItem)
+                Driver.Url = PageAddressExpensiveItem;
+            return this;
         }
         private IWebElement OrderButton => Driver.FindElement(By.Id("button-cart"));
         private IWebElement ChartTotalResultSamePage => Driver.FindElement(By.Id("cart-total"));
