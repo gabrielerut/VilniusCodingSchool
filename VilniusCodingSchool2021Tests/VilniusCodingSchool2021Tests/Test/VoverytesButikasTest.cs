@@ -10,7 +10,7 @@ using VilniusCodingSchool2021Tests.Page;
 
 namespace VilniusCodingSchool2021Tests.Test
 {
-    class VoverytesButikasTest :BaseTest
+    class VoverytesButikasTest : BaseTest
     {
 
         [TestCase("g_survilaite@outlook.com", "KodasTestui", "Įspėjimas: El. paštas ir/arba slaptažodis nerasti sistemoje.", TestName = "Test Valid LogIn")]
@@ -31,13 +31,8 @@ namespace VilniusCodingSchool2021Tests.Test
         [TestCase("testouser", "TestoKodas", "123@gmail.com", "868686868", "Lithuania", "Vilnius", "Iveskite slaptazodi", TestName = "Test New User Registration Form")]
         public void TestNewUserRegistrationForm(string name, string lastName, string email, string phone, string country, string city, string result )
         {
-            _accountRegisterPage.InsertAllPersonalInfoWithNoPassword(name, lastName, email, phone);
-            _accountRegisterPage.SelectFromDropdownCountry(country)
-                .SelectFromDropdownCity(city)
-                .CheckNewlettersCheckbox()
-                .CheckPrivacyCheckbox()
-                .ClickContinueRegistratonButton()
-                .CheckEmptyPasswordErrorResult(result);
+            _accountRegisterPage.InsertAllPersonalInfoWithNoPassword(name, lastName, email, phone, country, city);
+            _accountRegisterPage.CheckEmptyPasswordErrorResult(result);
         }
 
         [TestCase("1", "1 prekė(s) - 16.00€", TestName = "Test Correct Chart")]
@@ -57,7 +52,7 @@ namespace VilniusCodingSchool2021Tests.Test
             .CheckEmptyChartResult(result2);
         }
 
-        [TestCase("Pastomatas 0.00 eur", TestName = "Check free shiping price for item over 45 eur")]
+        [TestCase("Paštomatas - 0.00€ ", TestName = "Check free shiping price for item over 45 eur")]
         public void TestFreeShipping(string result3)
         {
             _productOver45eurPage.BuyProductOver45eur();

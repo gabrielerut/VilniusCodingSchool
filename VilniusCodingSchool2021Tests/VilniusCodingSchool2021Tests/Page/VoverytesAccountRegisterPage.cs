@@ -67,13 +67,17 @@ namespace VilniusCodingSchool2021Tests.Page
             newUserPhone.SendKeys(phone);
             return this;
         }
-        public void InsertAllPersonalInfoWithNoPassword(string name, string lastName, string email, string phone)
+        public void InsertAllPersonalInfoWithNoPassword(string name, string lastName, string email, string phone, string country, string city)
         {
             InsertName(name);
             InsertLastname(lastName);
             InsertEmail(email);
             InsertPhone(phone);
-
+            SelectFromDropdownCountry(country);
+            SelectFromDropdownCity(city);
+            CheckNewlettersCheckbox();
+            CheckPrivacyCheckbox();
+            ClickContinueRegistratonButton();
         }
         public VoverytesAccountRegisterPage SelectFromDropdownCountry(string country)
         {

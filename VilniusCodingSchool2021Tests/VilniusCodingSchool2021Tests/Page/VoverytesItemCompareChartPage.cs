@@ -11,7 +11,7 @@ namespace VilniusCodingSchool2021Tests.Page
 {
     public class VoverytesItemCompareChartPage :BasePage
     {
-        public const string PageAddressOpenLogin = "//https://www.voverytesbutikelis.lt/pasipuosimui_ir_svarai/vasarines_kepures/Wooly_organic_rudenine_kepure_su_ausytemis_Caramel";
+        public const string PageAddressOpenLogin = "//https://www.voverytesbutikelis.lt/pasipuosimui_ir_svarai/Wooly_organic_rudenine_kepure_su_ausytemis_Caramel";
 
         public VoverytesItemCompareChartPage(IWebDriver webdriver) : base(webdriver)
         {
