@@ -8,18 +8,19 @@ using VilniusCodingSchool2021Tests.Drivers;
 
 namespace VilniusCodingSchool2021Tests.Page
 {
-    public class BasePage : CustomDriver
+    public class BasePage
     {
-        protected static IWebDriver driver;
+        protected static IWebDriver Driver;
 
         public BasePage(IWebDriver webDriver)
         {
-            driver = webDriver;
+            Driver = webDriver;
         }
 
         public void CloseBrowser()
         {
-            driver.Quit();
+            //Driver.Quit();
         }
     }
+
 }

@@ -17,27 +17,22 @@ namespace VilniusCodingSchool2021Tests.Page
 
         public VoverytesAccountRegisterPage(IWebDriver webdriver) : base(webdriver)
         {
-            driver.Url = PageAddressOpenLogin;
+            Driver.Url = PageAddressOpenLogin;
         }
-        private IWebElement newRegisterResult => driver.FindElement(By.CssSelector("#content > h1"));
-        private IWebElement newUserName => driver.FindElement(By.Id("input-firstname"));
-        private IWebElement newUserLastName => driver.FindElement(By.Id("input-lastname"));
-        private IWebElement newUserEmail => driver.FindElement(By.Id("input-email"));
-        private IWebElement newUserPhone => driver.FindElement(By.Id("input-telephone"));
-        private IWebElement newUserAdress => driver.FindElement(By.Id("input-address-1"));
-        private IWebElement newUserCity => driver.FindElement(By.Id("input-city"));
-        private SelectElement dropDownCountry => new SelectElement(driver.FindElement(By.Id("input-country")));
+        private IWebElement newRegisterResult => Driver.FindElement(By.CssSelector("#content > h1"));
+        private IWebElement newUserName => Driver.FindElement(By.Id("input-firstname"));
+        private IWebElement newUserLastName => Driver.FindElement(By.Id("input-lastname"));
+        private IWebElement newUserEmail => Driver.FindElement(By.Id("input-email"));
+        private IWebElement newUserPhone => Driver.FindElement(By.Id("input-telephone"));
+        private IWebElement newUserAdress => Driver.FindElement(By.Id("input-address-1"));
+        private IWebElement newUserCity => Driver.FindElement(By.Id("input-city"));
+        private SelectElement dropDownCountry => new SelectElement(Driver.FindElement(By.Id("input-country")));
 
-        private SelectElement dropDownRegion => new SelectElement(driver.FindElement(By.Id("input-zone")));
-        private IWebElement privacyCheckbox => driver.FindElement(By.Id("#content > div > form > div > div > input[type=checkbox]:nth-child(2)"));
-        private IWebElement newslettersCheckbox => driver.FindElement(By.CssSelector("#content > div > form > fieldset:nth-child(7) > div > div > label:nth-child(2) > input[type=radio]"));
-        private IWebElement continueRegistrationButton => driver.FindElement(By.CssSelector("#content > div > form > div > div > input.btn.btn-primary.button"));
-        private IWebElement emptyPasswordErrorResult => driver.FindElement(By.Id("#content > div > form > fieldset:nth-child(5) > div.form-group.required.has-error > div > div"));
-
-        internal object InsertAllPersonalInfoWithNoPassword()
-        {
-            throw new NotImplementedException();
-        }
+        private SelectElement dropDownRegion => new SelectElement(Driver.FindElement(By.Id("input-zone")));
+        private IWebElement privacyCheckbox => Driver.FindElement(By.Id("#content > div > form > div > div > input[type=checkbox]:nth-child(2)"));
+        private IWebElement newslettersCheckbox => Driver.FindElement(By.CssSelector("#content > div > form > fieldset:nth-child(7) > div > div > label:nth-child(2) > input[type=radio]"));
+        private IWebElement continueRegistrationButton => Driver.FindElement(By.CssSelector("#content > div > form > div > div > input.btn.btn-primary.button"));
+        private IWebElement emptyPasswordErrorResult => Driver.FindElement(By.Id("#content > div > form > fieldset:nth-child(5) > div.form-group.required.has-error > div > div"));
 
         public VoverytesAccountRegisterPage CheckNewRegisterButtonResult(string expectedRegisterButtonResul)
         {

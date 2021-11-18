@@ -14,13 +14,13 @@ namespace VilniusCodingSchool2021Tests.Page
         public const string PageAddressOpenLogin = "https://www.voverytesbutikelis.lt/Drabuziu_kabykla_Tipi";
         public VoverytesMoreThan45EURPage(IWebDriver webdriver) : base(webdriver)
         {
-            driver.Url = PageAddressOpenLogin;
+            Driver.Url = PageAddressOpenLogin;
         }
-        private IWebElement OrderButton => driver.FindElement(By.Id("button-cart"));
-        private IWebElement ChartTotalResultSamePage => driver.FindElement(By.Id("cart-total"));
-        private IWebElement MiniChartTotalBox => driver.FindElement(By.CssSelector("#cart > div > ul > li:nth-child(2) > div"));
-        private IWebElement ReviewChartButton => driver.FindElement(By.CssSelector("#cart > div > ul > li:nth-child(2) > div > p > a:nth-child(1)"));
-        private IWebElement FinalBuyButton => driver.FindElement(By.CssSelector("#content > div > div.buttons > div.pull-right > a"));
+        private IWebElement OrderButton => Driver.FindElement(By.Id("button-cart"));
+        private IWebElement ChartTotalResultSamePage => Driver.FindElement(By.Id("cart-total"));
+        private IWebElement MiniChartTotalBox => Driver.FindElement(By.CssSelector("#cart > div > ul > li:nth-child(2) > div"));
+        private IWebElement ReviewChartButton => Driver.FindElement(By.CssSelector("#cart > div > ul > li:nth-child(2) > div > p > a:nth-child(1)"));
+        private IWebElement FinalBuyButton => Driver.FindElement(By.CssSelector("#content > div > div.buttons > div.pull-right > a"));
 
         public VoverytesMoreThan45EURPage ClickAddToChart()
         {
@@ -29,7 +29,7 @@ namespace VilniusCodingSchool2021Tests.Page
         }
         public VoverytesMoreThan45EURPage GoToChartStep()
         {
-            Actions action = new Actions(driver);
+            Actions action = new Actions(Driver);
             action.MoveToElement(ChartTotalResultSamePage).Perform();
             action.MoveToElement(MiniChartTotalBox).Perform();
             action.Build().Perform();

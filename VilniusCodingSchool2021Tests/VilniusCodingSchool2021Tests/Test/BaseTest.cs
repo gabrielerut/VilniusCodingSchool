@@ -12,27 +12,30 @@ namespace VilniusCodingSchool2021Tests.Test
 {
     public class BaseTest
     {
-        public static IWebDriver driver;
+        public static IWebDriver Driver;
         public static VoverytesAccountRegisterPage _accountRegisterPage;
         public static VoverytesButikasLoginPage _loginPage;
         public static VoverytesInsideChartPage _chartPage;
         public static VoverytesItemCompareChartPage _compareChartElementsPage;
         public static VoverytesMoreThan45EURPage _productOver45eurPage;
+        public static CheckOutPageAndShipping _checkoutPage;
+
 
         [OneTimeSetUp]
         public static void SetUp()
         {
-            driver = CustomDriver.GetChromeDriver();
-            _accountRegisterPage = new VoverytesAccountRegisterPage(driver);
-            _loginPage = new VoverytesButikasLoginPage(driver);
-            _chartPage = new VoverytesInsideChartPage(driver);
-            _compareChartElementsPage = new VoverytesItemCompareChartPage(driver);
-            _productOver45eurPage = new VoverytesMoreThan45EURPage(driver);
+            Driver = CustomDriver.GetChromeDriver();
+            _accountRegisterPage = new VoverytesAccountRegisterPage(Driver);
+            _loginPage = new VoverytesButikasLoginPage(Driver);
+            _chartPage = new VoverytesInsideChartPage(Driver);
+            _compareChartElementsPage = new VoverytesItemCompareChartPage(Driver);
+            _productOver45eurPage = new VoverytesMoreThan45EURPage(Driver);
+            _checkoutPage = new CheckOutPageAndShipping(Driver);
         }
         [OneTimeTearDown]
         public static void TearDown()
         {
-            //driver.Quit();
+            //Driver.Quit();
         }
 
         /*[TearDown]

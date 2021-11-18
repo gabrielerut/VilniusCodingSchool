@@ -16,13 +16,13 @@ namespace VilniusCodingSchool2021Tests.Page
 
         public VoverytesButikasLoginPage(IWebDriver webdriver) : base(webdriver)
         {
-            driver.Url = PageAddressOpenLogin;
+            Driver.Url = PageAddressOpenLogin;
         }
-        private IWebElement userEmail => driver.FindElement(By.Id("input-email"));
-        private IWebElement userPassword => driver.FindElement(By.Id("input-password"));
-        private IWebElement loginButton => driver.FindElement(By.Id("#content > div > div.col-sm-6.right > div > form > input"));
-        private IWebElement loginResult => driver.FindElement(By.CssSelector("#container > div.alert.alert-danger.warning"));
-        private IWebElement newRegisterButton => driver.FindElement(By.CssSelector("#column-right > div > div > ul > li:nth-child(2) > a"));
+        private IWebElement userEmail => Driver.FindElement(By.Id("input-email"));
+        private IWebElement userPassword => Driver.FindElement(By.Id("input-password"));
+        private IWebElement loginButton => Driver.FindElement(By.Id("#content > div > div.col-sm-6.right > div > form > input"));
+        private IWebElement loginResult => Driver.FindElement(By.CssSelector("#container > div.alert.alert-danger.warning"));
+        private IWebElement newRegisterButton => Driver.FindElement(By.CssSelector("#column-right > div > div > ul > li:nth-child(2) > a"));
 
         public VoverytesButikasLoginPage InsertEmail(string email)
         {

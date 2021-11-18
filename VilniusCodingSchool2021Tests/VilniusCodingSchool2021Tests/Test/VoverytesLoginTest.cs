@@ -6,20 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VilniusCodingSchool2021Tests.Drivers;
 using VilniusCodingSchool2021Tests.Page;
 
 namespace VilniusCodingSchool2021Tests.Test
 {
-    class VoverytesButikasTest : BaseTest
+    class VoverytesLoginTest : BaseTest
     {
 
-        [TestCase("g_survilaite@outlook.com", "KodasTestui", "Įspėjimas: El. paštas ir/arba slaptažodis nerasti sistemoje.", TestName = "Test Valid LogIn")]
-        public void TestValidLogIn(string email, string password, string result)
-        {
-            _loginPage.InsertEmailAndPassword(email, password);
-            _loginPage.ClickLoginButton()
-            .CheckLoginResult(result);
-        }
         [TestCase("g_survilaite@outlook.com", "KodasTestui", "REGISTRUOTI VARTOTOJĄ", TestName = "Test New User Registration Button")]
         public void TestNewUserRegisterButton(string email, string password, string result2)
         {
@@ -28,6 +22,14 @@ namespace VilniusCodingSchool2021Tests.Test
             .ClickNewRegisterButton();
             _accountRegisterPage.CheckNewRegisterButtonResult(result2);
         }
+        [TestCase("g_survilaite@outlook.com", "KodasTestui", "Įspėjimas: El. paštas ir/arba slaptažodis nerasti sistemoje.", TestName = "Test Valid LogIn")]
+        public void TestValidLogIn(string email, string password, string result)
+        {
+            _loginPage.InsertEmailAndPassword(email, password);
+            _loginPage.ClickLoginButton()
+            .CheckLoginResult(result);
+        }
+        
         [TestCase("testouser", "TestoKodas", "123@gmail.com", "868686868", "Testo gatve", "Vilnius",  "Lithuania", "Vilnius", "Iveskite slaptazodi", TestName = "Test New User Registration Form")]
         public void TestNewUserRegistrationForm(string name, string lastName, string email, string phone, string adress, string city, string country, string region, string result )
         {
@@ -56,7 +58,7 @@ namespace VilniusCodingSchool2021Tests.Test
         public void TestFreeShipping(string result3)
         {
             _productOver45eurPage.BuyProductOver45eur();
-            _chartPage.CheckFreeShipingResult(result3);
+            _checkoutPage.CheckFreeShipingResult(result3);
         }
 
 

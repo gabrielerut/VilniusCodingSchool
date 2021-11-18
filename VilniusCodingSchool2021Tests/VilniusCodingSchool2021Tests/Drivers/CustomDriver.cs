@@ -15,10 +15,12 @@ namespace VilniusCodingSchool2021Tests.Drivers
         {
             return GetDriver(Browsers.Chrome);
         }
+
         public static IWebDriver GetFirefoxDriver()
         {
             return GetDriver(Browsers.Firefox);
         }
+
         private static IWebDriver GetDriver(Browsers browserName)
         {
             IWebDriver driver = null;
@@ -36,6 +38,7 @@ namespace VilniusCodingSchool2021Tests.Drivers
             driver.Manage().Window.Maximize();
 
             return driver;
+
         }
     }
 }

@@ -62,9 +62,10 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Drivers\Browsers.cs" />
-    <Compile Include="Drivers\CustomDrivers.cs" />
+    <Compile Include="Drivers\CustomDriver.cs" />
     <Compile Include="NewTools\MyScreenshots .cs" />
     <Compile Include="Page\BasePage.cs" />
+    <Compile Include="Page\CheckOutPageAndShipping.cs" />
     <Compile Include="Page\VoverytesAccountRegisterPage.cs" />
     <Compile Include="Page\VoverytesButikasLoginPage.cs" />
     <Compile Include="Page\VoverytesItemCompareChartPage.cs" />
@@ -72,7 +73,7 @@
     <Compile Include="Page\VoverytesInsideChartPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\BaseTest.cs" />
-    <Compile Include="Test\VoverytesButikasTest.cs" />
+    <Compile Include="Test\VoverytesLoginTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
