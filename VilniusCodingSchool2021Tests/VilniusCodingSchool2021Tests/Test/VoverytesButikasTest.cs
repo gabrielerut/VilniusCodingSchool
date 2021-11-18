@@ -28,10 +28,10 @@ namespace VilniusCodingSchool2021Tests.Test
             .ClickNewRegisterButton();
             _accountRegisterPage.CheckNewRegisterButtonResult(result2);
         }
-        [TestCase("testouser", "TestoKodas", "123@gmail.com", "868686868", "Lithuania", "Vilnius", "Iveskite slaptazodi", TestName = "Test New User Registration Form")]
-        public void TestNewUserRegistrationForm(string name, string lastName, string email, string phone, string country, string city, string result )
+        [TestCase("testouser", "TestoKodas", "123@gmail.com", "868686868", "Testo gatve", "Vilnius",  "Lithuania", "Vilnius", "Iveskite slaptazodi", TestName = "Test New User Registration Form")]
+        public void TestNewUserRegistrationForm(string name, string lastName, string email, string phone, string adress, string city, string country, string region, string result )
         {
-            _accountRegisterPage.InsertAllPersonalInfoWithNoPassword(name, lastName, email, phone, country, city);
+            _accountRegisterPage.InsertAllPersonalInfoWithNoPassword(name, lastName, email, phone, adress, city, country, region);
             _accountRegisterPage.CheckEmptyPasswordErrorResult(result);
         }
 

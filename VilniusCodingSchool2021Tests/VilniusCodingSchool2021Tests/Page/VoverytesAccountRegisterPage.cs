@@ -24,9 +24,11 @@ namespace VilniusCodingSchool2021Tests.Page
         private IWebElement newUserLastName => driver.FindElement(By.Id("input-lastname"));
         private IWebElement newUserEmail => driver.FindElement(By.Id("input-email"));
         private IWebElement newUserPhone => driver.FindElement(By.Id("input-telephone"));
+        private IWebElement newUserAdress => driver.FindElement(By.Id("input-address-1"));
+        private IWebElement newUserCity => driver.FindElement(By.Id("input-city"));
         private SelectElement dropDownCountry => new SelectElement(driver.FindElement(By.Id("input-country")));
 
-        private SelectElement dropDownCity => new SelectElement(driver.FindElement(By.Id("input-zone")));
+        private SelectElement dropDownRegion => new SelectElement(driver.FindElement(By.Id("input-zone")));
         private IWebElement privacyCheckbox => driver.FindElement(By.Id("#content > div > form > div > div > input[type=checkbox]:nth-child(2)"));
         private IWebElement newslettersCheckbox => driver.FindElement(By.CssSelector("#content > div > form > fieldset:nth-child(7) > div > div > label:nth-child(2) > input[type=radio]"));
         private IWebElement continueRegistrationButton => driver.FindElement(By.CssSelector("#content > div > form > div > div > input.btn.btn-primary.button"));
@@ -67,14 +69,28 @@ namespace VilniusCodingSchool2021Tests.Page
             newUserPhone.SendKeys(phone);
             return this;
         }
-        public void InsertAllPersonalInfoWithNoPassword(string name, string lastName, string email, string phone, string country, string city)
+        public VoverytesAccountRegisterPage InsertAdress(string adress)
+        {
+            newUserAdress.Clear();
+            newUserAdress.SendKeys(adress);
+            return this;
+        }
+        public VoverytesAccountRegisterPage InsertCity(string city)
+        {
+            newUserCity.Clear();
+            newUserCity.SendKeys(city);
+            return this;
+        }
+        public void InsertAllPersonalInfoWithNoPassword(string name, string lastName, string email, string phone, string adress, string city, string country, string region)
         {
             InsertName(name);
             InsertLastname(lastName);
             InsertEmail(email);
             InsertPhone(phone);
+            InsertAdress(adress);
+            InsertCity(city);
             SelectFromDropdownCountry(country);
-            SelectFromDropdownCity(city);
+            SelectFromDropdownCity(region);
             CheckNewlettersCheckbox();
             CheckPrivacyCheckbox();
             ClickContinueRegistratonButton();
@@ -84,9 +100,9 @@ namespace VilniusCodingSchool2021Tests.Page
             dropDownCountry.SelectByValue(country);
             return this;
         }
-        public VoverytesAccountRegisterPage SelectFromDropdownCity(string city)
+        public VoverytesAccountRegisterPage SelectFromDropdownCity(string region)
         {
-            dropDownCity.SelectByValue(city);
+            dropDownRegion.SelectByValue(region);
             return this;
         }
         public VoverytesAccountRegisterPage CheckNewlettersCheckbox()
