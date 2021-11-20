@@ -13,7 +13,7 @@ namespace VilniusCodingSchool2021Tests.Page
         public const string PageAddressFinalCheckout = "https://www.voverytesbutikelis.lt/index.php?route=onepagecheckout/checkout";
 
         public CheckOutPageAndShipping(IWebDriver webdriver) : base(webdriver)
-        {}
+        { }
         public CheckOutPageAndShipping NavigateToDefaultPage()
         {
             if (Driver.Url != PageAddressFinalCheckout)

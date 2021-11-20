@@ -74,7 +74,7 @@
     <Compile Include="Page\VoverytesInsideChartPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\BaseTest.cs" />
-    <Compile Include="Test\VoverytesLoginTest.cs" />
+    <Compile Include="Test\VoverytesButikasTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

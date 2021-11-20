@@ -15,7 +15,7 @@ namespace VilniusCodingSchool2021Tests.Page
         public const string PageAddressItemPage = "https://www.voverytesbutikelis.lt/pasipuosimui_ir_svarai/Wooly_organic_rudenine_kepure_su_ausytemis_Caramel";
         public const string ChartTotalResultOnPage = "1 prekė(s) - 16.00€";
         public VoverytesItemCompareChartPage(IWebDriver webdriver) : base(webdriver)
-        {}
+        { }
         public VoverytesItemCompareChartPage NavigateToDefaultPage()
         {
             if (Driver.Url != PageAddressItemPage)
@@ -58,10 +58,10 @@ namespace VilniusCodingSchool2021Tests.Page
             Thread.Sleep(300);
             GoToChartStep();
         }
-        
+
         public VoverytesItemCompareChartPage GoToChartStep()
         {
-            
+
             Actions action = new Actions(Driver);
             action.MoveToElement(ChartTotalResultOnSamePage).Perform();
             action.MoveToElement(MiniChartTotalBox).Perform();

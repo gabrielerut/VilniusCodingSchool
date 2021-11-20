@@ -14,7 +14,7 @@ namespace VilniusCodingSchool2021Tests.Page
         public const string PageAddressChart = "https://www.voverytesbutikelis.lt/cart";
 
         public VoverytesInsideChartPage(IWebDriver webdriver) : base(webdriver)
-        {}
+        { }
         public VoverytesInsideChartPage NavigateToDefaultPage()
         {
             if (Driver.Url != PageAddressChart)
@@ -23,7 +23,7 @@ namespace VilniusCodingSchool2021Tests.Page
         }
         private IWebElement RemoveFromChartButton => Driver.FindElement(By.CssSelector("#content > form > div > table > tbody > tr > td.text-left.quantity > div > span > button.btn.btn-danger"));
         private IWebElement EmptyChartResult => Driver.FindElement(By.CssSelector("#content > p"));
- 
+
         public VoverytesInsideChartPage RemoveItemFromChart()
         {
             RemoveFromChartButton.Click();
@@ -34,7 +34,7 @@ namespace VilniusCodingSchool2021Tests.Page
             Assert.AreEqual(expectedResultEmpty, EmptyChartResult.Text, "Log in failed");
             return this;
         }
-        
+
 
     }
 }

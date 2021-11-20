@@ -15,7 +15,7 @@ namespace VilniusCodingSchool2021Tests.Page
         public const string LoginErrorResultText = "Įspėjimas: El. paštas ir/arba slaptažodis nerasti sistemoje.";
 
         public VoverytesButikasLoginPage(IWebDriver webdriver) : base(webdriver)
-        {}
+        { }
         public VoverytesButikasLoginPage NavigateToDefaultPage()
         {
             if (Driver.Url != PageAddressOpenLogin)

@@ -16,7 +16,7 @@ namespace VilniusCodingSchool2021Tests.Page
         public const string RegisterResultText = "REGISTRUOTI VARTOTOJĄ";
 
         public VoverytesAccountRegisterPage(IWebDriver webdriver) : base(webdriver)
-        {}
+        { }
         public VoverytesAccountRegisterPage NavigateToDefaultPage()
         {
             if (Driver.Url != PageAddressAccountRegister)
